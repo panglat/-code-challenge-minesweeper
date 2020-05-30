@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './styles.scss';
 
 function App() {
   return <div className="App">App</div>;
