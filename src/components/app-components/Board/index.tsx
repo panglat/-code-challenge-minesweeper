@@ -1,8 +1,11 @@
 import React from 'react';
 import './styles.scss';
+import { useSelector } from 'react-redux';
+import { gameOptions } from '../../../business/Game/selectors';
 
 const Board: React.FC = () => {
-  return <div className="Board">Board</div>;
+  const gOptions = useSelector(gameOptions);
+  return <table className="Board"></table>;
 };
 
 export default Board;

@@ -5,4 +5,5 @@ const rootReducer = combineReducers({
   game: GameReducer,
 });
 
+export type RootState = ReturnType<typeof rootReducer>;
 export default rootReducer;
