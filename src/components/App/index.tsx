@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import './styles.scss';
+import Board from '../app-components/Board';
+import { gameSetup } from '../../business/Game/actions';
 
-function App() {
-  return <div className="App">App</div>;
-}
+const App: React.FC = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(gameSetup({ cols: 3, rows: 4 }));
+  });
+
+  return <Board />;
+};
 
 export default App;
