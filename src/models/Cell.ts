@@ -6,6 +6,7 @@ export enum CellStatus {
 
 interface Cell {
   hasBomb: boolean;
+  neighborBombs: number;
 }
 
 export default Cell;

@@ -70,7 +70,14 @@ class MinesweeperController {
           r,
           c
         );
-        cells[r].push({ hasBomb } as Cell);
+        const neighborBombs = MinesweeperController.calcNeighborBombs(
+          bombsIndexMap,
+          rows,
+          cols,
+          r,
+          c
+        );
+        cells[r].push({ hasBomb, neighborBombs } as Cell);
       }
     }
 
