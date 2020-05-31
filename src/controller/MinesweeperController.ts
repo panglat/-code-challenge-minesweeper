@@ -3,7 +3,54 @@ import Board from '../models/Board';
 import Cell from '../models/Cell';
 
 class MinesweeperController {
-  static createBoard(gameOptions: GameOptions): Board {
+  private static calcOneDimensionIndex(
+    rows: number,
+    row: number,
+    col: number
+  ): number {
+    return row * rows + col;
+  }
+
+  private static calcHasBomb(
+    bombsIndex: number[],
+    rows: number,
+    row: number,
+    col: number
+  ): boolean {
+    const index = MinesweeperController.calcOneDimensionIndex(rows, row, col);
+    const hasBomb = bombsIndex.includes(index);
+    return hasBomb;
+  }
+
+  private static calcNeighborBombs(
+    bombsIndex: number[],
+    rows: number,
+    cols: number,
+    row: number,
+    col: number
+  ): number {
+    let result = 0;
+    for (let r = -1; r <= 1; r++) {
+      const calRow = row + r;
+      if (calRow >= 0 && calRow < rows) {
+        for (let c = -1; c <= 1; c++) {
+          const calCol = col + c;
+          if (calCol >= 0 && calCol < cols) {
+            const hasBomb = MinesweeperController.calcHasBomb(
+              bombsIndex,
+              calRow,
+              rows,
+              calCol
+            );
+            hasBomb && result++;
+          }
+        }
+      }
+    }
+    return result;
+  }
+
+  public static createBoard(gameOptions: GameOptions): Board {
     debugger;
     const { rows, cols, bombs } = gameOptions;
     const maxTileNumber = rows * cols;
@@ -17,8 +64,12 @@ class MinesweeperController {
     for (let r = 0; r < rows; r++) {
       cells[r] = new Array<Cell>();
       for (let c = 0; c < cols; c++) {
-        const oneDimensionIndex = r * rows + c;
-        const hasBomb = bombsIndexMap.includes(oneDimensionIndex);
+        const hasBomb = MinesweeperController.calcHasBomb(
+          bombsIndexMap,
+          rows,
+          r,
+          c
+        );
         cells[r].push({ hasBomb } as Cell);
       }
     }
