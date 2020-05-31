@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import './styles.scss';
 import Board from '../app-components/Board';
-import { gameSetup } from '../../business/Game/actions';
+import { gameCreate } from '../../business/Game/actions';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(gameSetup({ cols: 3, rows: 4 }));
+    dispatch(gameCreate({ cols: 3, rows: 4, bombs: 2 }));
   });
 
   return <Board />;

@@ -1,8 +1,9 @@
-import { GameOptions, GAME_SETUP, GameActions } from './types';
+import { GAME_CREATE, GameActions } from './types';
+import GameOptions from '../../models/GameOptions';
 
-export function gameSetup(newGameSetup: GameOptions): GameActions {
+export function gameCreate(gameOptions: GameOptions): GameActions {
   return {
-    type: GAME_SETUP,
-    payload: newGameSetup,
+    type: GAME_CREATE,
+    payload: gameOptions,
   };
 }

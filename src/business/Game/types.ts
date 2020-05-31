@@ -1,12 +1,10 @@
-export const GAME_SETUP = 'GAME_SETUP';
+import GameOptions from '../../models/GameOptions';
+import Board from '../../models/Board';
 
-export interface GameOptions {
-  cols: number;
-  rows: number;
-}
+export const GAME_CREATE = 'GAME_CREATE';
 
 interface GameSetupAction {
-  type: typeof GAME_SETUP;
+  type: typeof GAME_CREATE;
   payload: GameOptions;
 }
 
@@ -14,4 +12,5 @@ export type GameActions = GameSetupAction;
 
 export interface GameState {
   gameOptions: GameOptions;
+  board: Board;
 }
