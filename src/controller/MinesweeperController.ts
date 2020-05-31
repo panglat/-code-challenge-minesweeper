@@ -51,7 +51,6 @@ class MinesweeperController {
   }
 
   public static createBoard(gameOptions: GameOptions): Board {
-    debugger;
     const { rows, cols, bombs } = gameOptions;
     const maxTileNumber = rows * cols;
     const numOfBombs = Math.min(bombs, maxTileNumber);
