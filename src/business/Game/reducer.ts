@@ -1,4 +1,10 @@
-import { GameState, GameActions, CREATE_GAME, REVEAL_CELL } from './types';
+import {
+  GameState,
+  GameActions,
+  CREATE_GAME,
+  REVEAL_CELL,
+  FLAG_CELL,
+} from './types';
 import MinesweeperController from '../../controller/MinesweeperController';
 import Game from '../../models/Game';
 
@@ -19,6 +25,14 @@ export function GameReducer(
     case REVEAL_CELL:
       return {
         game: MinesweeperController.revealCell(
+          state.game as Game,
+          action.payload
+        ),
+      };
+
+    case FLAG_CELL:
+      return {
+        game: MinesweeperController.flagCell(
           state.game as Game,
           action.payload
         ),

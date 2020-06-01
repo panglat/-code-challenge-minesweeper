@@ -4,7 +4,7 @@ import { boardSelector } from '../../../business/Game/selectors';
 import Cell from '../Cell';
 
 import './styles.scss';
-import { RevealCell } from '../../../business/Game/actions';
+import { RevealCell, FlagCell } from '../../../business/Game/actions';
 
 const Board: React.FC = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,9 @@ const Board: React.FC = () => {
                     onReveal={(cell) => {
                       dispatch(RevealCell(cell));
                     }}
-                    onFlag={(cell) => {}}
+                    onFlag={(cell) => {
+                      dispatch(FlagCell(cell));
+                    }}
                   />
                 </td>
               ))}

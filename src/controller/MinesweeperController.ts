@@ -127,6 +127,20 @@ class MinesweeperController {
       return newGame;
     }
   }
+
+  public static flagCell(game: Game, cell: Cell): Game {
+    if (cell.status === CellStatus.Covered) {
+      return {
+        ...game,
+        board: MinesweeperController.updateCell(game.board, {
+          ...cell,
+          status: CellStatus.Flagged,
+        }),
+      };
+    }
+
+    return game;
+  }
 }
 
 export default MinesweeperController;
