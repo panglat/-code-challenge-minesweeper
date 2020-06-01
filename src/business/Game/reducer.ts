@@ -1,5 +1,6 @@
-import { GameState, GameActions, GAME_CREATE } from './types';
+import { GameState, GameActions, CREATE_GAME, REVEAL_CELL } from './types';
 import MinesweeperController from '../../controller/MinesweeperController';
+import Game from '../../models/Game';
 
 const initialState: GameState = {
   game: null,
@@ -10,9 +11,17 @@ export function GameReducer(
   action: GameActions
 ): GameState {
   switch (action.type) {
-    case GAME_CREATE:
+    case CREATE_GAME:
       return {
         game: MinesweeperController.createGame(action.payload),
+      };
+
+    case REVEAL_CELL:
+      return {
+        game: MinesweeperController.revealCell(
+          state.game as Game,
+          action.payload
+        ),
       };
 
     default:

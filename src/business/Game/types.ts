@@ -1,14 +1,21 @@
 import GameOptions from '../../models/GameOptions';
 import Game from '../../models/Game';
+import Cell from '../../models/Cell';
 
-export const GAME_CREATE = 'GAME_CREATE';
+export const CREATE_GAME = 'CREATE_GAME';
+export const REVEAL_CELL = 'REVEAL_CELL';
 
-interface GameSetupAction {
-  type: typeof GAME_CREATE;
+interface CreateGameAction {
+  type: typeof CREATE_GAME;
   payload: GameOptions;
 }
 
-export type GameActions = GameSetupAction;
+interface RevealCellAction {
+  type: typeof REVEAL_CELL;
+  payload: Cell;
+}
+
+export type GameActions = CreateGameAction | RevealCellAction;
 
 export interface GameState {
   game: Game | null;

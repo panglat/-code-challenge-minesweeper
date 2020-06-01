@@ -95,12 +95,38 @@ class MinesweeperController {
 
     return { board: cells, options, status: GameStatus.Playing };
   }
-  /*
-  public static revealCell(board: Game, cell: Cell): { ResultingAction, Board } {
+
+  private static updateCell(board: Cell[][], cell: Cell): Cell[][] {
+    return board.map((row, index) =>
+      cell.row !== index
+        ? row
+        : row.map((rowCell, index) => (cell.col !== index ? rowCell : cell))
+    );
+  }
+
+  public static revealCell(game: Game, cell: Cell): Game {
     if (cell.status === CellStatus.Revealed) {
-      return { ResultingAction.Continue, board};
-    } else if (cell.hasBomb)
-  }*/
+      return game;
+    } else if (cell.hasBomb) {
+      return {
+        ...game,
+        board: MinesweeperController.updateCell(game.board, {
+          ...cell,
+          status: CellStatus.Exploded,
+        }),
+        status: GameStatus.Lost,
+      };
+    } else {
+      const newGame = {
+        ...game,
+        board: MinesweeperController.updateCell(game.board, {
+          ...cell,
+          status: CellStatus.Revealed,
+        }),
+      };
+      return newGame;
+    }
+  }
 }
 
 export default MinesweeperController;

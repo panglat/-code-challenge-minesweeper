@@ -1,10 +1,13 @@
 import React from 'react';
-import './styles.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { boardSelector } from '../../../business/Game/selectors';
 import Cell from '../Cell';
 
+import './styles.scss';
+import { RevealCell } from '../../../business/Game/actions';
+
 const Board: React.FC = () => {
+  const dispatch = useDispatch();
   const cells = useSelector(boardSelector);
 
   if (cells) {
@@ -17,7 +20,9 @@ const Board: React.FC = () => {
                 <td key={`row${rIndex}-cell${cIndex}`}>
                   <Cell
                     cell={cell}
-                    onReveal={(cell) => {}}
+                    onReveal={(cell) => {
+                      dispatch(RevealCell(cell));
+                    }}
                     onFlag={(cell) => {}}
                   />
                 </td>
