@@ -105,7 +105,10 @@ class MinesweeperController {
   }
 
   public static revealCell(game: Game, cell: Cell): Game {
-    if (cell.status === CellStatus.Revealed) {
+    if (
+      cell.status === CellStatus.Revealed ||
+      cell.status === CellStatus.Flagged
+    ) {
       return game;
     } else if (cell.hasBomb) {
       return {
@@ -135,6 +138,14 @@ class MinesweeperController {
         board: MinesweeperController.updateCell(game.board, {
           ...cell,
           status: CellStatus.Flagged,
+        }),
+      };
+    } else if (cell.status === CellStatus.Flagged) {
+      return {
+        ...game,
+        board: MinesweeperController.updateCell(game.board, {
+          ...cell,
+          status: CellStatus.Covered,
         }),
       };
     }
