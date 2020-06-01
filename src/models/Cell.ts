@@ -1,6 +1,6 @@
 export enum CellStatus {
   Covered,
-  Uncovered,
+  Revealed,
   Flagged,
   Exploded,
 }

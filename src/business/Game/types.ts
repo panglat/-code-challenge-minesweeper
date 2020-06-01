@@ -1,5 +1,5 @@
 import GameOptions from '../../models/GameOptions';
-import Board from '../../models/Board';
+import Game from '../../models/Game';
 
 export const GAME_CREATE = 'GAME_CREATE';
 
@@ -11,6 +11,5 @@ interface GameSetupAction {
 export type GameActions = GameSetupAction;
 
 export interface GameState {
-  gameOptions: GameOptions;
-  board: Board;
+  game: Game | null;
 }

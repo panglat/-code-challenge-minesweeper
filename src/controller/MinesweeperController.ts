@@ -1,6 +1,13 @@
 import GameOptions from '../models/GameOptions';
-import Board from '../models/Board';
+import Game from '../models/Game';
 import Cell, { CellStatus } from '../models/Cell';
+import GameStatus from '../models/GameStatus';
+
+export enum ResultingAction {
+  Continue,
+  Won,
+  Lost,
+}
 
 class MinesweeperController {
   private static calcOneDimensionIndex(
@@ -50,8 +57,8 @@ class MinesweeperController {
     return result;
   }
 
-  public static createBoard(gameOptions: GameOptions): Board {
-    const { rows, cols, bombs } = gameOptions;
+  public static createGame(options: GameOptions): Game {
+    const { rows, cols, bombs } = options;
     const maxTileNumber = rows * cols;
     const numOfBombs = Math.min(bombs, maxTileNumber);
     const bombsIndexMapSet = new Set<number>();
@@ -86,8 +93,14 @@ class MinesweeperController {
       }
     }
 
-    return { cells } as Board;
+    return { board: cells, options, status: GameStatus.Playing };
   }
+  /*
+  public static revealCell(board: Game, cell: Cell): { ResultingAction, Board } {
+    if (cell.status === CellStatus.Revealed) {
+      return { ResultingAction.Continue, board};
+    } else if (cell.hasBomb)
+  }*/
 }
 
 export default MinesweeperController;
