@@ -1,6 +1,6 @@
 import GameOptions from '../models/GameOptions';
 import Board from '../models/Board';
-import Cell from '../models/Cell';
+import Cell, { CellStatus } from '../models/Cell';
 
 class MinesweeperController {
   private static calcOneDimensionIndex(
@@ -76,7 +76,13 @@ class MinesweeperController {
           r,
           c
         );
-        cells[r].push({ hasBomb, neighborBombs } as Cell);
+        cells[r].push({
+          row: r,
+          col: c,
+          status: CellStatus.Covered,
+          hasBomb,
+          neighborBombs,
+        } as Cell);
       }
     }
 

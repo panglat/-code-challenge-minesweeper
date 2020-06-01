@@ -1,3 +1,7 @@
-.Cell {
+.cell {
   text-align: center;
+
+  &--covered {
+    background-color: #efefef;
+  }
 }

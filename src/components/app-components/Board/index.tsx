@@ -1,14 +1,10 @@
 import React from 'react';
 import './styles.scss';
 import { useSelector } from 'react-redux';
-import {
-  gameOptionsSelector,
-  boardSelector,
-} from '../../../business/Game/selectors';
+import { boardSelector } from '../../../business/Game/selectors';
 import Cell from '../Cell';
 
 const Board: React.FC = () => {
-  const gameOptions = useSelector(gameOptionsSelector);
   const board = useSelector(boardSelector);
 
   if (board && board.cells) {
@@ -19,7 +15,11 @@ const Board: React.FC = () => {
             <tr key={`row${rIndex}`}>
               {row.map((cell, cIndex) => (
                 <td key={`row${rIndex}-cell${cIndex}`}>
-                  <Cell cell={cell} />
+                  <Cell
+                    cell={cell}
+                    onReveal={(cell) => {}}
+                    onFlag={(cell) => {}}
+                  />
                 </td>
               ))}
             </tr>
