@@ -50,6 +50,7 @@ const Home: React.FC = () => (
         handleChange,
         handleBlur,
         handleSubmit,
+        errors,
         isValid,
       }: FormikProps<FormValues>) => (
         <form className="home__form" onSubmit={handleSubmit}>
@@ -69,6 +70,12 @@ const Home: React.FC = () => (
                 maxLength={2}
               />
             </label>
+            {errors.rows && (
+              <>
+                <br />
+                <span className="home__error">{errors.rows}</span>
+              </>
+            )}
           </div>
           <div className="home__group">
             <label className="home__label" htmlFor="gameColumns">
@@ -84,6 +91,12 @@ const Home: React.FC = () => (
                 value={values.columns}
                 maxLength={2}
               />
+              {errors.columns && (
+                <>
+                  <br />
+                  <span className="home__error">{errors.columns}</span>
+                </>
+              )}
             </label>
           </div>
           <div className="home__group">
@@ -103,6 +116,12 @@ const Home: React.FC = () => (
                 <option value="hard">Hard</option>
               </select>
             </label>
+            {errors.level && (
+              <>
+                <br />
+                <span className="home__error">{errors.level}</span>
+              </>
+            )}
           </div>
           <div className="reminder-modal__button-group">
             <button type="submit" disabled={!isValid}>
