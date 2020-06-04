@@ -21,7 +21,7 @@ const Home: React.FC = () => (
       initialValues={{
         rows: 10,
         columns: 12,
-        level: '',
+        level: 'medium',
       }}
       validate={(values: FormValues) => {
         const errors: FormError = {};
