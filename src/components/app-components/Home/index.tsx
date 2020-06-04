@@ -1,6 +1,118 @@
 import React from 'react';
+import { Formik, FormikProps } from 'formik';
+
 import './styles.scss';
 
-const Home: React.FC = () => <div className="home">Home</div>;
+interface FormValues {
+  rows: number;
+  columns: number;
+  level: string;
+}
+
+interface FormError {
+  rows?: string;
+  columns?: string;
+  level?: string;
+}
+
+const Home: React.FC = () => (
+  <div className="home">
+    <Formik
+      initialValues={{
+        rows: 10,
+        columns: 12,
+        level: '',
+      }}
+      validate={(values: FormValues) => {
+        const errors: FormError = {};
+        if (!values.rows) {
+          errors.rows = 'Required';
+        } else if (values.rows < 4) {
+          errors.rows = 'At least 4 rows are required';
+        }
+        if (!values.columns) {
+          errors.columns = 'Required';
+        } else if (values.columns < 4) {
+          errors.rows = 'At least 4 rows are required';
+        }
+        if (!values.level) {
+          errors.level = 'Please select a level';
+        }
+        return errors;
+      }}
+      onSubmit={(values: FormValues) => {
+        console.log(values);
+      }}
+      validateOnMount
+    >
+      {({
+        values,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isValid,
+      }: FormikProps<FormValues>) => (
+        <form className="home__form" onSubmit={handleSubmit}>
+          <h1 className="home__header">Minesweeper</h1>
+          <div className="home__group">
+            <label className="home__label" htmlFor="gameRows">
+              Rows:
+              <br />
+              <input
+                name="rows"
+                className="home__input-text"
+                type="number"
+                id="gameRows"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.rows}
+                maxLength={2}
+              />
+            </label>
+          </div>
+          <div className="home__group">
+            <label className="home__label" htmlFor="gameColumns">
+              Columns:
+              <br />
+              <input
+                name="columns"
+                className="home__input-text"
+                type="number"
+                id="gameColumns"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.columns}
+                maxLength={2}
+              />
+            </label>
+          </div>
+          <div className="home__group">
+            <label className="home__label" htmlFor="gameLevel">
+              Level:
+              <br />
+              <select
+                name="level"
+                className="home__input-text"
+                id="gameLevel"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.level}
+              >
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </label>
+          </div>
+          <div className="reminder-modal__button-group">
+            <button type="submit" disabled={!isValid}>
+              Save
+            </button>
+          </div>
+        </form>
+      )}
+    </Formik>
+  </div>
+);
 
 export default Home;
