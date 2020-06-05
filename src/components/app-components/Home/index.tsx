@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Formik, FormikProps } from 'formik';
 import { CreateGame } from '../../../business/Game/actions';
 
@@ -17,7 +18,7 @@ interface FormError {
   level?: string;
 }
 
-const Home: React.FC = () => {
+const Home: React.FC<RouteComponentProps> = ({ history }) => {
   const dispatch = useDispatch();
 
   return (
@@ -56,6 +57,7 @@ const Home: React.FC = () => {
           dispatch(
             CreateGame({ rows: values.rows, cols: values.columns, bombs })
           );
+          history.push('/board');
         }}
         validateOnMount
       >
@@ -149,4 +151,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default withRouter(Home);
