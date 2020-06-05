@@ -57,6 +57,25 @@ class MinesweeperController {
     return result;
   }
 
+  private static getNeighborCells(game: Game, cell: Cell): Cell[] {
+    const neighborCells: Cell[] = new Array<Cell>();
+    const { rows, cols } = game.options;
+    for (let r = -1; r <= 1; r++) {
+      const calRow = cell.row + r;
+      if (calRow >= 0 && calRow < rows) {
+        for (let c = -1; c <= 1; c++) {
+          if (r !== 0 || c !== 0) {
+            const calCol = cell.col + c;
+            if (calCol >= 0 && calCol < cols) {
+              neighborCells.push(game.board[calRow][calCol]);
+            }
+          }
+        }
+      }
+    }
+    return neighborCells;
+  }
+
   public static createGame(options: GameOptions): Game {
     const { rows, cols, bombs } = options;
     const maxTileNumber = rows * cols;
@@ -127,8 +146,22 @@ class MinesweeperController {
           status: CellStatus.Revealed,
         }),
       };
+
+      if (cell.neighborBombs === 0) {
+        return MinesweeperController.revealNeighborCells(newGame, cell);
+      }
+
       return newGame;
     }
+  }
+
+  public static revealNeighborCells(game: Game, cell: Cell): Game {
+    const neighborCells = MinesweeperController.getNeighborCells(game, cell);
+    return neighborCells.reduce(
+      (newGame, neighborCell) =>
+        MinesweeperController.revealCell(newGame, neighborCell),
+      game
+    );
   }
 
   public static flagCell(game: Game, cell: Cell): Game {
