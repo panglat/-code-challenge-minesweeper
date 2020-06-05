@@ -57,6 +57,17 @@ class MinesweeperController {
     return result;
   }
 
+  private static calcCoveredCellsWithoutBomb(game: Game): number {
+    return game.board.reduce(
+      (prevCounter, row) =>
+        prevCounter +
+        row.filter(
+          (cell) => cell.status === CellStatus.Covered && !cell.hasBomb
+        ).length,
+      0
+    );
+  }
+
   private static getNeighborCells(game: Game, cell: Cell): Cell[] {
     const neighborCells: Cell[] = new Array<Cell>();
     const { rows, cols } = game.options;
@@ -130,6 +141,7 @@ class MinesweeperController {
     ) {
       return game;
     } else if (cell.hasBomb) {
+      console.log('Lost');
       return {
         ...game,
         board: MinesweeperController.updateCell(game.board, {
@@ -146,6 +158,14 @@ class MinesweeperController {
           status: CellStatus.Revealed,
         }),
       };
+
+      if (MinesweeperController.calcCoveredCellsWithoutBomb(newGame) === 0) {
+        console.log('Won');
+        return {
+          ...newGame,
+          status: GameStatus.Won,
+        };
+      }
 
       if (cell.neighborBombs === 0) {
         return MinesweeperController.revealNeighborCells(newGame, cell);
