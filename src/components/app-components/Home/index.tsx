@@ -49,10 +49,10 @@ const Home: React.FC<RouteComponentProps> = ({ history }) => {
         onSubmit={(values: FormValues) => {
           const levelWeight =
             values.level === 'easy'
-              ? 0.2
+              ? 0.1
               : values.level === 'medium'
-              ? 0.4
-              : 0.6;
+              ? 0.2
+              : 0.4;
           const bombs = Math.floor(values.columns * values.rows * levelWeight);
           dispatch(
             CreateGame({ rows: values.rows, cols: values.columns, bombs })
