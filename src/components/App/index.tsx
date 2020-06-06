@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './styles.scss';
-import Board from '../app-components/Board';
 import Home from '../app-components/Home';
+import GameBoard from '../app-components/GameBoard';
 
 const App: React.FC = () => {
   return (
     <Router>
       <Switch>
         <Route path="/board">
-          <Board />
+          <GameBoard />
         </Route>
         <Route path="/">
           <Home />
