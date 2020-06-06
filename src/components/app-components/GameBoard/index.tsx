@@ -4,7 +4,6 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Board from '../Board';
 import GameStatus from '../GameStatus';
 import { gameStatus as gameStatusSelector } from '../../../business/Game/selectors';
-import GameStatusEnum from '../../../models/GameStatus';
 
 import './styles.scss';
 

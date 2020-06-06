@@ -2,13 +2,16 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { boardSelector } from '../../../business/Game/selectors';
 import Cell from '../Cell';
+import { gameStatus as gameStatusSelector } from '../../../business/Game/selectors';
+import { RevealCell, FlagCell } from '../../../business/Game/actions';
+import GameStatusEnum from '../../../models/GameStatus';
 
 import './styles.scss';
-import { RevealCell, FlagCell } from '../../../business/Game/actions';
 
 const Board: React.FC = () => {
   const dispatch = useDispatch();
   const cells = useSelector(boardSelector);
+  const gameStatus = useSelector(gameStatusSelector);
 
   if (cells) {
     return (
@@ -21,10 +24,14 @@ const Board: React.FC = () => {
                   <Cell
                     cell={cell}
                     onReveal={(cell) => {
-                      dispatch(RevealCell(cell));
+                      if (gameStatus === GameStatusEnum.Playing) {
+                        dispatch(RevealCell(cell));
+                      }
                     }}
                     onFlag={(cell) => {
-                      dispatch(FlagCell(cell));
+                      if (gameStatus === GameStatusEnum.Playing) {
+                        dispatch(FlagCell(cell));
+                      }
                     }}
                   />
                 </td>
