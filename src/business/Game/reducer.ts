@@ -4,6 +4,7 @@ import {
   CREATE_GAME,
   REVEAL_CELL,
   FLAG_CELL,
+  RESET_GAME,
 } from './types';
 import MinesweeperController from '../../controller/MinesweeperController';
 import Game from '../../models/Game';
@@ -37,6 +38,9 @@ export function GameReducer(
           action.payload
         ),
       };
+
+    case RESET_GAME:
+      return initialState;
 
     default:
       return state;

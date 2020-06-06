@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Formik, FormikProps } from 'formik';
-import { CreateGame } from '../../../business/Game/actions';
+import { CreateGame, ResetGame } from '../../../business/Game/actions';
 
 import './styles.scss';
 
@@ -20,6 +20,10 @@ interface FormError {
 
 const Home: React.FC<RouteComponentProps> = ({ history }) => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(ResetGame());
+  });
 
   return (
     <div className="home">

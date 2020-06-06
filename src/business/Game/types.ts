@@ -5,6 +5,7 @@ import Cell from '../../models/Cell';
 export const CREATE_GAME = 'CREATE_GAME';
 export const REVEAL_CELL = 'REVEAL_CELL';
 export const FLAG_CELL = 'FLAG_CELL';
+export const RESET_GAME = 'RESET_GAME';
 
 interface CreateGameAction {
   type: typeof CREATE_GAME;
@@ -21,7 +22,15 @@ interface FlagCellAction {
   payload: Cell;
 }
 
-export type GameActions = CreateGameAction | RevealCellAction | FlagCellAction;
+interface ResetGameAction {
+  type: typeof RESET_GAME;
+}
+
+export type GameActions =
+  | CreateGameAction
+  | RevealCellAction
+  | FlagCellAction
+  | ResetGameAction;
 
 export interface GameState {
   game: Game | null;
