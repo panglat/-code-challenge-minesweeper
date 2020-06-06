@@ -1,4 +1,5 @@
 enum GameStatus {
+  NotSet,
   Playing,
   Won,
   Lost,
