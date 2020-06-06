@@ -18,7 +18,7 @@ interface FormError {
   level?: string;
 }
 
-const Home: React.FC<RouteComponentProps> = ({ history }) => {
+const GameSetup: React.FC<RouteComponentProps> = ({ history }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Home: React.FC<RouteComponentProps> = ({ history }) => {
   });
 
   return (
-    <div className="home">
+    <div className="game-setup">
       <Formik
         initialValues={{
           rows: 10,
@@ -155,4 +155,4 @@ const Home: React.FC<RouteComponentProps> = ({ history }) => {
   );
 };
 
-export default withRouter(Home);
+export default withRouter(GameSetup);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './styles.scss';
-import Home from '../app-components/Home';
+import GameSetup from '../app-components/GameSetup';
 import GameBoard from '../app-components/GameBoard';
 
 const App: React.FC = () => {
@@ -12,7 +12,7 @@ const App: React.FC = () => {
           <GameBoard />
         </Route>
         <Route path="/">
-          <Home />
+          <GameSetup />
         </Route>
       </Switch>
     </Router>
