@@ -1,6 +1,6 @@
 # code-challenge-minesweeper
 
-The goal of this exercise is to create a version of the classic game of Minesweeper
+The goal of this exercise is to create a version of the classic game of Minesweeper.
 
 ## How to install the app
 
