@@ -15,6 +15,7 @@ const GameBoard: React.FC<RouteComponentProps> = ({ history }) => {
 
   return (
     <div className="game-board">
+      <h1 className="game-board__header">Minesweeper</h1>
       <Board />
       <GameStatus />
     </div>

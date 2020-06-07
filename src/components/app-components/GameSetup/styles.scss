@@ -6,6 +6,10 @@
   align-items: center;
   min-height: 100vh;
 
+  &__header {
+    text-align: center;
+  }
+
   &__form {
     padding: 2rem;
     border: none;
