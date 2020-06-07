@@ -26,13 +26,14 @@ const Cell: React.FC<CellProps> = ({ cell, onReveal, onFlag }) => {
   };
 
   const renderStatus = (cell: CellModel) => {
-    if (cell.hasBomb) {
-      return '*';
+    switch (cell.status) {
+      case CellStatus.Revealed:
+        return cell.neighborBombs;
+      case CellStatus.Exploded:
+        return '💣';
+      case CellStatus.Flagged:
+        return '🏁';
     }
-    if (cell.status === CellStatus.Flagged) {
-      return 'F';
-    }
-    return cell.neighborBombs;
   };
 
   return (
