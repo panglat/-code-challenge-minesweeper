@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Board from '../Board';
@@ -9,9 +9,11 @@ import './styles.scss';
 
 const GameBoard: React.FC<RouteComponentProps> = ({ history }) => {
   const gameStatus = useSelector(gameStatusSelector);
-  if (!gameStatus) {
-    history.push('/');
-  }
+  useEffect(() => {
+    if (!gameStatus) {
+      history.push('/');
+    }
+  }, [gameStatus, history]);
 
   return (
     <div className="game-board">

@@ -3,11 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import GameSetup from 'components/app-components/GameSetup';
 import GameBoard from 'components/app-components/GameBoard';
-import configureStore from 'store/configureStore';
+import { store } from 'store';
 
 import './styles.scss';
-
-const store = configureStore();
 
 const App: React.FC = () => {
   return (
