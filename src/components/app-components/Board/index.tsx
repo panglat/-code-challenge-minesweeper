@@ -15,31 +15,29 @@ const Board: React.FC = () => {
 
   if (cells) {
     return (
-      <table className="Board">
-        <tbody>
-          {cells.map((row, rIndex) => (
-            <tr key={`row${rIndex}`}>
-              {row.map((cell, cIndex) => (
-                <td key={`row${rIndex}-cell${cIndex}`}>
-                  <Cell
-                    cell={cell}
-                    onReveal={(cell) => {
-                      if (gameStatus === GameStatusEnum.Playing) {
-                        dispatch(RevealCell(cell));
-                      }
-                    }}
-                    onFlag={(cell) => {
-                      if (gameStatus === GameStatusEnum.Playing) {
-                        dispatch(FlagCell(cell));
-                      }
-                    }}
-                  />
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="board">
+        {cells.map((row, rIndex) => (
+          <div className="board__row" key={`row${rIndex}`}>
+            {row.map((cell, cIndex) => (
+              <div className="board__cell" key={`row${rIndex}-cell${cIndex}`}>
+                <Cell
+                  cell={cell}
+                  onReveal={(cell) => {
+                    if (gameStatus === GameStatusEnum.Playing) {
+                      dispatch(RevealCell(cell));
+                    }
+                  }}
+                  onFlag={(cell) => {
+                    if (gameStatus === GameStatusEnum.Playing) {
+                      dispatch(FlagCell(cell));
+                    }
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     );
   }
   return null;
