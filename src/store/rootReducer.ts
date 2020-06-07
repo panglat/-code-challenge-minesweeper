@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GameReducer } from '../business/Game/reducer';
+import { GameReducer } from 'business/Game/reducer';
 
 const rootReducer = combineReducers({
   minesweeper: GameReducer,

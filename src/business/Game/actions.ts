@@ -5,8 +5,8 @@ import {
   FLAG_CELL,
   RESET_GAME,
 } from './types';
-import GameOptions from '../../models/GameOptions';
-import Cell from '../../models/Cell';
+import GameOptions from 'models/GameOptions';
+import Cell from 'models/Cell';
 
 export function CreateGame(gameOptions: GameOptions): GameActions {
   return {

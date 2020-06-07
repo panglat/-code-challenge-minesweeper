@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { boardSelector } from 'business/Game/selectors';
-import Cell from '../Cell';
+import Cell from 'components/app-components/Cell';
 import { gameStatus as gameStatusSelector } from 'business/Game/selectors';
 import { RevealCell, FlagCell } from 'business/Game/actions';
 import GameStatusEnum from 'models/GameStatus';

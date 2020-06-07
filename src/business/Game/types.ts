@@ -1,6 +1,6 @@
-import GameOptions from '../../models/GameOptions';
-import Game from '../../models/Game';
-import Cell from '../../models/Cell';
+import GameOptions from 'models/GameOptions';
+import Game from 'models/Game';
+import Cell from 'models/Cell';
 
 export const CREATE_GAME = 'CREATE_GAME';
 export const REVEAL_CELL = 'REVEAL_CELL';

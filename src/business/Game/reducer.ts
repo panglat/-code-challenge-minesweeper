@@ -6,8 +6,8 @@ import {
   FLAG_CELL,
   RESET_GAME,
 } from './types';
-import MinesweeperController from '../../controller/MinesweeperController';
-import Game from '../../models/Game';
+import MinesweeperController from 'controller/MinesweeperController';
+import Game from 'models/Game';
 
 const initialState: GameState = {
   game: null,

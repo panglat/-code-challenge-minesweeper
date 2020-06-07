@@ -1,7 +1,7 @@
-import GameOptions from '../models/GameOptions';
-import Game from '../models/Game';
-import Cell, { CellStatus } from '../models/Cell';
-import GameStatus from '../models/GameStatus';
+import GameOptions from 'models/GameOptions';
+import Game from 'models/Game';
+import Cell, { CellStatus } from 'models/Cell';
+import GameStatus from 'models/GameStatus';
 
 export enum ResultingAction {
   Continue,
