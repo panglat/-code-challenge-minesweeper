@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { gameStatus as gameStatusSelector } from '../../../business/Game/selectors';
-import GameStatusEnum from '../../../models/GameStatus';
 import { Link } from 'react-router-dom';
+import { gameStatus as gameStatusSelector } from 'business/Game/selectors';
+import GameStatusEnum from 'models/GameStatus';
 
 import './styles.scss';
 

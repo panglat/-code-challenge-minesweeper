@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
+import CellModel, { CellStatus } from 'models/Cell';
 
-import CellModel, { CellStatus } from '../../../models/Cell';
 import './styles.scss';
 
 interface CellProps {

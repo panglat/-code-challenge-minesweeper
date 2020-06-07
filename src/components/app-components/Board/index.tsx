@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { boardSelector } from '../../../business/Game/selectors';
+import { boardSelector } from 'business/Game/selectors';
 import Cell from '../Cell';
-import { gameStatus as gameStatusSelector } from '../../../business/Game/selectors';
-import { RevealCell, FlagCell } from '../../../business/Game/actions';
-import GameStatusEnum from '../../../models/GameStatus';
+import { gameStatus as gameStatusSelector } from 'business/Game/selectors';
+import { RevealCell, FlagCell } from 'business/Game/actions';
+import GameStatusEnum from 'models/GameStatus';
 
 import './styles.scss';
 

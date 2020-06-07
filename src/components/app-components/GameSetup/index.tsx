@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Formik, FormikProps } from 'formik';
-import { CreateGame, ResetGame } from '../../../business/Game/actions';
+import { CreateGame, ResetGame } from 'business/Game/actions';
 
 import './styles.scss';
 

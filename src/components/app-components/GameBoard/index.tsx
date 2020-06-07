@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import Board from '../Board';
-import GameStatus from '../GameStatus';
-import { gameStatus as gameStatusSelector } from '../../../business/Game/selectors';
+import Board from 'components/app-components/Board';
+import GameStatus from 'components/app-components/GameStatus';
+import { gameStatus as gameStatusSelector } from 'business/Game/selectors';
 
 import './styles.scss';
 
