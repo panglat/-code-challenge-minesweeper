@@ -24,15 +24,15 @@ This page sets the board game.
 
 ## Board
 
-Once the player sets the game, the boar is show.
+Once the player sets the game, the boar is shown.
 
 ![Board](https://panglat.github.io/code-challenge-minesweeper/images/02_board.png 'Game board ready to play')
 
-If the player uncovers a bomb, the player loses and the game ends.
+If the player reveals a bomb, the player loses and the game ends.
 
 ![Board](https://panglat.github.io/code-challenge-minesweeper/images/03_lost.png 'The player has lost')
 
-If the player uncovers all tiles without uncovers a bomb, they wins.
+If the player reveals all tiles without uncovers a bomb, they win.
 
 ![Board](https://panglat.github.io/code-challenge-minesweeper/images/04_won.png 'The player has won')
 
