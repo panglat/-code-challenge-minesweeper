@@ -10,16 +10,16 @@ const GameStatus: React.FC = () => {
   const gameStatus = useSelector(gameStatusSelector);
   return (
     <div className="game-status">
-      <p>
-        Game Status:{' '}
+      <p className="game-status__paragraph">
+        <strong>Game Status: </strong>
         {gameStatus === GameStatusEnum.Playing
-          ? 'Playing'
+          ? 'You are Playing'
           : gameStatus === GameStatusEnum.Won
-          ? 'Won'
-          : 'Lost'}{' '}
+          ? 'You have WON 🥳'
+          : 'You have LOST 😢'}
       </p>
       <Link to="/">
-        <button>Reset Game</button>
+        <button className="game-status__button">Reset Game</button>
       </Link>
     </div>
   );

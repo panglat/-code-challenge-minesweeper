@@ -1,3 +1,17 @@
+@import 'global-styles/globals.scss';
+
 .game-status {
   text-align: center;
+
+  &__paragraph {
+    font-size: 1rem;
+  }
+
+  &__button {
+    width: 10rem;
+    border: 1px solid;
+    border-radius: 0.25rem;
+    padding: 0.25em 0.25em;
+    font-size: 1rem;
+  }
 }
