@@ -38,3 +38,6 @@ If the player reveals all tiles without uncovers a bomb, they win.
 
 ## Reset Game
 The player can reset the game clicking 'Reset Game' button
+
+## The game is save!
+The game is saved every time the player performs an action. If the player refreshes the page, the last game is loaded. The player can reset the game clicking 'Reset Game' button.
