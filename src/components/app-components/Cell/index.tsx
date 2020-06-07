@@ -28,7 +28,7 @@ const Cell: React.FC<CellProps> = ({ cell, onReveal, onFlag }) => {
   const renderStatus = (cell: CellModel) => {
     switch (cell.status) {
       case CellStatus.Revealed:
-        return cell.neighborBombs;
+        return cell.neighborBombs ? cell.neighborBombs : '';
       case CellStatus.Exploded:
         return '💣';
       case CellStatus.Flagged:
