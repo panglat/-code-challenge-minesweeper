@@ -35,15 +35,11 @@ const GameSetup: React.FC<RouteComponentProps> = ({ history }) => {
         }}
         validate={(values: FormValues) => {
           const errors: FormError = {};
-          if (!values.rows) {
-            errors.rows = 'Required';
-          } else if (values.rows < 4) {
+          if (!values.rows || values.rows < 4) {
             errors.rows = 'At least 4 rows are required';
           }
-          if (!values.columns) {
-            errors.columns = 'Required';
-          } else if (values.columns < 4) {
-            errors.rows = 'At least 4 rows are required';
+          if (!values.columns || values.columns < 4) {
+            errors.columns = 'At least 4 columns are required';
           }
           if (!values.level) {
             errors.level = 'Please select a level';
@@ -73,15 +69,15 @@ const GameSetup: React.FC<RouteComponentProps> = ({ history }) => {
           errors,
           isValid,
         }: FormikProps<FormValues>) => (
-          <form className="home__form" onSubmit={handleSubmit}>
-            <h1 className="home__header">Minesweeper</h1>
-            <div className="home__group">
-              <label className="home__label" htmlFor="gameRows">
+          <form className="game-setup__form" onSubmit={handleSubmit}>
+            <h1 className="game-setup__header">Minesweeper</h1>
+            <div className="game-setup__group">
+              <label className="game-setup__label" htmlFor="gameRows">
                 Rows:
                 <br />
                 <input
                   name="rows"
-                  className="home__input-text"
+                  className="game-setup__input-text"
                   type="number"
                   id="gameRows"
                   onChange={handleChange}
@@ -89,21 +85,21 @@ const GameSetup: React.FC<RouteComponentProps> = ({ history }) => {
                   value={values.rows}
                   maxLength={2}
                 />
+                {errors.rows && (
+                  <>
+                    <br />
+                    <span className="game-setup__error">{errors.rows}</span>
+                  </>
+                )}
               </label>
-              {errors.rows && (
-                <>
-                  <br />
-                  <span className="home__error">{errors.rows}</span>
-                </>
-              )}
             </div>
-            <div className="home__group">
-              <label className="home__label" htmlFor="gameColumns">
+            <div className="game-setup__group">
+              <label className="game-setup__label" htmlFor="gameColumns">
                 Columns:
                 <br />
                 <input
                   name="columns"
-                  className="home__input-text"
+                  className="game-setup__input-text"
                   type="number"
                   id="gameColumns"
                   onChange={handleChange}
@@ -114,18 +110,18 @@ const GameSetup: React.FC<RouteComponentProps> = ({ history }) => {
                 {errors.columns && (
                   <>
                     <br />
-                    <span className="home__error">{errors.columns}</span>
+                    <span className="game-setup__error">{errors.columns}</span>
                   </>
                 )}
               </label>
             </div>
-            <div className="home__group">
-              <label className="home__label" htmlFor="gameLevel">
+            <div className="game-setup__group">
+              <label className="game-setup__label" htmlFor="gameLevel">
                 Level:
                 <br />
                 <select
                   name="level"
-                  className="home__input-text"
+                  className="game-setup__input-text"
                   id="gameLevel"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -139,12 +135,16 @@ const GameSetup: React.FC<RouteComponentProps> = ({ history }) => {
               {errors.level && (
                 <>
                   <br />
-                  <span className="home__error">{errors.level}</span>
+                  <span className="game-setup__error">{errors.level}</span>
                 </>
               )}
             </div>
-            <div className="reminder-modal__button-group">
-              <button type="submit" disabled={!isValid}>
+            <div className="game-setup__button-group">
+              <button
+                type="submit"
+                disabled={!isValid}
+                className="game-setup__button"
+              >
                 Save
               </button>
             </div>
