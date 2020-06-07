@@ -35,3 +35,6 @@ If the player uncovers a bomb, the player loses and the game ends.
 If the player uncovers all tiles without uncovers a bomb, they wins.
 
 ![Board](https://panglat.github.io/code-challenge-minesweeper/images/04_won.png 'The player has won')
+
+## Reset Game
+The player can reset the game clicking 'Reset Game' button
