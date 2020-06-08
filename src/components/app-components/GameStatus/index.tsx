@@ -1,13 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { gameStatus as gameStatusSelector } from 'business/Game/selectors';
 import GameStatusEnum from 'models/GameStatus';
+import { ResetGame } from 'business/Game/actions';
 
 import './styles.scss';
 
-const GameStatus: React.FC = () => {
+const GameStatus: React.FC<RouteComponentProps> = ({ history }) => {
+  const dispatch = useDispatch();
   const gameStatus = useSelector(gameStatusSelector);
+
+  const handleOnClick = () => {
+    dispatch(ResetGame());
+    history.push('/');
+  };
+
   return (
     <div className="game-status">
       <p className="game-status__paragraph">
@@ -18,11 +26,11 @@ const GameStatus: React.FC = () => {
           ? 'You have WON 🥳'
           : 'You have LOST 😢'}
       </p>
-      <Link to="/">
-        <button className="game-status__button">Reset Game</button>
-      </Link>
+      <button className="game-status__button" onClick={handleOnClick}>
+        Reset Game
+      </button>
     </div>
   );
 };
 
-export default GameStatus;
+export default withRouter(GameStatus);

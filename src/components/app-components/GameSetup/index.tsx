@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Formik, FormikProps } from 'formik';
-import { CreateGame, ResetGame } from 'business/Game/actions';
+import { CreateGame } from 'business/Game/actions';
+import { gameStatus as gameStatusSelector } from 'business/Game/selectors';
 
 import './styles.scss';
+import GameStatus from 'models/GameStatus';
 
 interface FormValues {
   rows: number;
@@ -20,10 +22,12 @@ interface FormError {
 
 const GameSetup: React.FC<RouteComponentProps> = ({ history }) => {
   const dispatch = useDispatch();
-
+  const gameStatus = useSelector(gameStatusSelector) as GameStatus;
   useEffect(() => {
-    dispatch(ResetGame());
-  });
+    if (gameStatus) {
+      history.push('/board');
+    }
+  }, [gameStatus, history]);
 
   return (
     <div className="game-setup">
