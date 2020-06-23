@@ -28,6 +28,7 @@
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "source-map-explorer": "^2.4.2",
     "typescript": "^3.7.5"
   },
   "lint-staged": {
@@ -36,6 +37,7 @@
     ]
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
