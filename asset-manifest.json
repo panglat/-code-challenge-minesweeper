@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/code-challenge-minesweeper/static/css/main.621ba3c9.chunk.css",
-    "main.js": "/code-challenge-minesweeper/static/js/main.63370939.chunk.js",
-    "main.js.map": "/code-challenge-minesweeper/static/js/main.63370939.chunk.js.map",
+    "main.css": "/code-challenge-minesweeper/static/css/main.f09c3c24.chunk.css",
+    "main.js": "/code-challenge-minesweeper/static/js/main.8ef5e5f6.chunk.js",
+    "main.js.map": "/code-challenge-minesweeper/static/js/main.8ef5e5f6.chunk.js.map",
     "runtime-main.js": "/code-challenge-minesweeper/static/js/runtime-main.1ca286e8.js",
     "runtime-main.js.map": "/code-challenge-minesweeper/static/js/runtime-main.1ca286e8.js.map",
     "static/js/2.48ef348a.chunk.js": "/code-challenge-minesweeper/static/js/2.48ef348a.chunk.js",
     "static/js/2.48ef348a.chunk.js.map": "/code-challenge-minesweeper/static/js/2.48ef348a.chunk.js.map",
     "index.html": "/code-challenge-minesweeper/index.html",
-    "precache-manifest.3b038658d08b85bae5e94df40b867b82.js": "/code-challenge-minesweeper/precache-manifest.3b038658d08b85bae5e94df40b867b82.js",
+    "precache-manifest.66baaf113e8fa22e843bbabeeba4247a.js": "/code-challenge-minesweeper/precache-manifest.66baaf113e8fa22e843bbabeeba4247a.js",
     "service-worker.js": "/code-challenge-minesweeper/service-worker.js",
-    "static/css/main.621ba3c9.chunk.css.map": "/code-challenge-minesweeper/static/css/main.621ba3c9.chunk.css.map",
+    "static/css/main.f09c3c24.chunk.css.map": "/code-challenge-minesweeper/static/css/main.f09c3c24.chunk.css.map",
     "static/js/2.48ef348a.chunk.js.LICENSE.txt": "/code-challenge-minesweeper/static/js/2.48ef348a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1ca286e8.js",
     "static/js/2.48ef348a.chunk.js",
-    "static/css/main.621ba3c9.chunk.css",
-    "static/js/main.63370939.chunk.js"
+    "static/css/main.f09c3c24.chunk.css",
+    "static/js/main.8ef5e5f6.chunk.js"
   ]
 }
