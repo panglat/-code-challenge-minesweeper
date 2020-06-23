@@ -4,7 +4,7 @@ The goal of this exercise is to create a version of the classic game of Mineswee
 
 ## Demo
 
-This a link to a demo of this app: [Calendar App](https://panglat.github.io/code-challenge-minesweeper/).
+This a link to a demo of this app: [Minesweeper App](https://panglat.github.io/code-challenge-minesweeper/).
 
 ## How to install the app
 
