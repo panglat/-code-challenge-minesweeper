@@ -29,4 +29,3 @@ jobs:
         git config --global user.name ${{secrets.USERNAME}}
         git remote set-url origin https://${{secrets.TOKEN}}@github.com/${{secrets.USERNAME}}/code-challenge-minesweeper.git
         npm run deploy
-©
